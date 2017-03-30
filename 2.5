@@ -1,0 +1,68 @@
+1.Cluster :
+
+   A computer cluster consists of a set of loosely or tightly connected computers.
+   
+   They can be viewed as a single system.
+
+   Computer clusters have each node set to perform the same task, controlled and scheduled by software.
+   
+   It helps in performing multitasking since nodes can work parallelly;
+
+   HDFS has one namenode and one or more data nodes.
+
+ Hadoop Cluster :
+ 
+   Hadoop cluster is a computational cluster designed for storing and analyzing various types of data (structured,semi structured,unstructured).
+ 
+   Hadoop clusters consist of namenode and datanodes.
+ 
+   Large Hadoop Clusters are arranged in several racks.
+ 
+   Network traffic between different nodes in the same rack is much more desirable than network traffic across the racks. 
+
+
+
+2.  Components of Hadoop 1.x
+ 
+There are 5 components in Hadoop 1.x :
+
+   1.NameNode
+
+      Contains the Hadoop FileSystem Tree. 
+
+      It stores metadata information about files and directories
+      
+      It acts as a single point of failure.
+
+
+   2.Secondary Namenode
+
+     Performs periodic merging of namespace and edits
+
+     This is not a back up for NameNode
+
+
+   3.Data Node
+
+    Stores actual data blocks of file in HDFS on its own local disk
+
+    Sends signals to NameNode periodically (called as Heartbeat) to verify if it is active
+    
+    Sends block reporting to the NameNode on cluster startup as well as periodically atevery 10th Heartbeat
+
+    The DataNode are the workhorse of the system
+
+    They perform all the block operations, including periodic the Checksum.
+ 
+    They receive instructions from the NameNode of where to put the blocks and how to put the blocks.
+
+   4.JobTracker 
+ 
+    It Controls overall execution of map reduce jobs
+
+
+   5.TaskTracker 
+
+    It Runs individual map-reduce jobs on DataNodes
+
+    It Periodically communicates with the JobTracker to give updates and receive instructions
